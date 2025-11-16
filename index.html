@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage Finds - Curated Timeless Pieces</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e5e5;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 14px;
+            transition: opacity 0.2s;
+        }
+
+        nav a:hover {
+            opacity: 0.6;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-icons a {
+            text-decoration: none;
+            color: #2c2c2c;
+            font-size: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23d4c5b0" width="1200" height="800"/><text x="50%" y="50%" font-size="48" fill="%23fff" text-anchor="middle" opacity="0.3">VINTAGE</text></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 56px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background: white;
+            color: #2c2c2c;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: white;
+        }
+
+        /* Collection Section */
+        .collection {
+            padding: 80px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            margin-bottom: 60px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: #f5f5f5;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .product-image svg {
+            width: 60%;
+            height: 60%;
+            opacity: 0.2;
+        }
+
+        .product-info {
+            text-align: center;
+        }
+
+        .product-name {
+            font-size: 16px;
+            margin-bottom: 8px;
+            font-weight: 400;
+        }
+
+        .product-price {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* About Section */
+        .about {
+            background: #f9f9f9;
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about h2 {
+            font-size: 32px;
+            font-weight: 300;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .about p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c2c2c;
+            color: white;
+            padding: 60px 40px 30px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #999;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            nav {
+                gap: 20px;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .collection {
+                padding: 60px 20px;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">VINTAGE FINDS</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="header-icons">
+            <a href="#search">🔍</a>
+            <a href="#cart">🛒</a>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>TIMELESS TREASURES</h1>
+            <p>Curated vintage pieces with stories to tell</p>
+            <a href="#shop" class="btn">EXPLORE COLLECTION</a>
+        </div>
+    </section>
+
+    <section class="collection" id="shop">
+        <h2 class="section-title">Featured Collection</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="20" y="30" width="60" height="50" stroke="currentColor" stroke-width="2"/>
+                        <path d="M35 30V25C35 20 40 15 50 15C60 15 65 20 65 25V30" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Vintage Leather Bag</div>
+                    <div class="product-price">$145</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="20" stroke="currentColor" stroke-width="2"/>
+                        <line x1="30" y1="50" x2="20" y2="50" stroke="currentColor" stroke-width="2"/>
+                        <line x1="70" y1="50" x2="80" y2="50" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Classic Wrist Watch</div>
+                    <div class="product-price">$220</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="25" y="35" width="50" height="40" stroke="currentColor" stroke-width="2"/>
+                        <line x1="35" y1="45" x2="65" y2="45" stroke="currentColor" stroke-width="2"/>
+                        <line x1="35" y1="55" x2="65" y2="55" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Retro Polaroid Camera</div>
+                    <div class="product-price">$185</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="30" y="25" width="40" height="50" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="50" cy="35" r="3" fill="currentColor"/>
+                        <path d="M40 50L50 60L60 50" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Vintage Denim Jacket</div>
+                    <div class="product-price">$95</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="25" stroke="currentColor" stroke-width="2"/>
+                        <circle cx="50" cy="50" r="15" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Vinyl Record Player</div>
+                    <div class="product-price">$310</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M30 60C30 45 40 35 50 35C60 35 70 45 70 60" stroke="currentColor" stroke-width="2"/>
+                        <rect x="35" y="60" width="30" height="15" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div class="product-info">
+                    <div class="product-name">Classic Headphones</div>
+                    <div class="product-price">$125</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2>Our Story</h2>
+            <p>We believe every vintage piece has a story worth preserving. Our carefully curated collection brings together timeless items from decades past, each selected for its quality, character, and enduring style.</p>
+            <p>From classic fashion pieces to iconic accessories, we celebrate the craftsmanship and authenticity that only vintage can offer.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>SHOP</h3>
+                <ul>
+                    <li><a href="#clothing">Clothing</a></li>
+                    <li><a href="#accessories">Accessories</a></li>
+                    <li><a href="#home">Home Goods</a></li>
+                    <li><a href="#new">New Arrivals</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>CUSTOMER CARE</h3>
+                <ul>
+                    <li><a href="#shipping">Shipping Info</a></li>
+                    <li><a href="#returns">Returns</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>ABOUT</h3>
+                <ul>
+                    <li><a href="#story">Our Story</a></li>
+                    <li><a href="#sustainability">Sustainability</a></li>
+                    <li><a href="#terms">Terms</a></li>
+                    <li><a href="#privacy">Privacy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>CONNECT</h3>
+                <ul>
+                    <li><a href="#instagram">Instagram</a></li>
+                    <li><a href="#pinterest">Pinterest</a></li>
+                    <li><a href="#facebook">Facebook</a></li>
+                    <li><a href="#newsletter">Newsletter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Vintage Finds. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
